@@ -71,6 +71,7 @@ section{
 .square{
     width: 100/7%;
     padding-bottom: 100/7%;
+    cursor: pointer;
     height: 0;
     overflow: hidden;
     display: inline-block;
@@ -95,6 +96,7 @@ section{
         .center{
             vertical-align: middle;
             display: table-cell;
+            max-width: 80%;
         }
     }
 
@@ -120,10 +122,20 @@ section{
     }
     border: solid 1px @link_color;
 }
+.course-title{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 80%;
+    margin: auto;
+
+}
 .course{
     h5{
         text-align: center;
     }
+    padding-top: 1em;
+    cursor: pointer;
     border: solid 1px @link_color;
     height: 70px;
     overflow: hidden;

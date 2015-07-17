@@ -69,6 +69,7 @@ section h1 {
 .square {
   width: 14.28571429%;
   padding-bottom: 14.28571429%;
+  cursor: pointer;
   height: 0;
   overflow: hidden;
   display: inline-block;
@@ -98,6 +99,7 @@ section h1 {
 .square .mask .center {
   vertical-align: middle;
   display: table-cell;
+  max-width: 80%;
 }
 .square:hover .mask {
   opacity: 1;
@@ -119,7 +121,16 @@ section h1 {
   color: #865646;
   text-decoration: none;
 }
+.course-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 80%;
+  margin: auto;
+}
 .course {
+  padding-top: 1em;
+  cursor: pointer;
   border: solid 1px #432b23;
   height: 70px;
   overflow: hidden;
