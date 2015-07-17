@@ -60,3 +60,6 @@ target/
 db.sqlite3
 static/ckeditor/
 static/admin/
+.idea/
+bower_components/
+media/teacher/

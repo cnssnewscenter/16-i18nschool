@@ -1,0 +1,76 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>暑期学堂</title>
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css'%}"/>
+    <link rel="stylesheet" href="{% static "app.css" %}"/>
+</head>
+<body>
+    <header>
+        <div class="top container">
+            <img src="" alt="" class="logo"/>
+            <img src="{% static 'img/logo.png'%}" class="pull-left"/>
+            <div class="pull-right">
+                <a href="http://www.uestc.edu.cn/">学校主页</a>
+                <a href="http://www.new1.uestc.edu.cn/">新闻中心</a>
+                <a href="http://www.new1.uestc.edu.cn/?n=UestcNews.Front.Category.Page&CatId=56">关注</a>
+                <input type="text" placeholder="搜索" class="search"/>
+            </div>
+        </div>
+        <div class="container text-center">
+            <img src="{% static 'img/title.png' %}" class="title">
+        </div>
+    </header>
+    <section>PUT A SLIDE HERE</section>
+    <section class="dark">
+        <h1>What is internatinal summer school?</h1>
+        <h1>什么是暑期国际学堂？</h1>
+    </section>
+    <section class="normal">
+        <h1>Curriculum</h1>
+        <h1>课程</h1>
+        <div class="container">
+            <div class="courses grid">
+                {%for i in teachers%}
+                <div class="course">
+                    <h5>{{i.name}}</h5>
+                    <h5>{{i.school}}</h5>
+                    <div class="hidden intro">
+                        {{i.intro | safe}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="whole_grid">
+                <h5><a href="#">点击下载“2015暑期学校——国际课堂课程信息汇总”</a></h5>
+            </div>
+        </div>
+    </section>
+    <section class="light">
+        <h1>Teacher</h1>
+        <h1>师资</h1>
+        <div class="teacher grid">
+            {%for i in teachers%}
+            <div class="square" style="background-image: url({{ i.pic.url }})">
+                <div class="teacher" >
+                    <div class="mask">
+                        <div class="center">
+                            <h5>{{i.course}}</h5>
+                            <h5>{{i.name}}</h5>
+                        </div>
+                    </div>
+                    <div class="hidden intro">
+                        {{i.intro | safe}}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+<script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'bower_components/bootstrap/dist/js/bootstap.min.js' %}"></script>
+</body>
+</html>

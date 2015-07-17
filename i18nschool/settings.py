@@ -57,7 +57,7 @@ ROOT_URLCONF = 'i18nschool.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["show/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,5 +106,5 @@ STATIC_URL = '/static/'
 CKEDITOR_UPLOAD_PATH = "uploads/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CKEDITOR_IMAGE_BACKEND = "pillow"

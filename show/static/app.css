@@ -1,0 +1,137 @@
+header {
+  background-image: url(img/bg.jpg);
+  background-size: cover;
+}
+.top {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+.top .pull-right {
+  margin-top: 1.6rem;
+}
+.top .pull-right a {
+  text-align: center;
+  margin: 0;
+  padding: 0 2rem;
+  color: black;
+  text-decoration: none;
+}
+.top .pull-right a:hover {
+  color: black;
+  font-weight: 500;
+  text-decoration: none;
+}
+.top .pull-right a:visited {
+  color: black;
+  text-decoration: none;
+}
+.top .pull-right a:nth-child(-n+2) {
+  border-right: solid 1px black;
+}
+.top .pull-right input.search {
+  margin-left: 2rem;
+  border-width: 0;
+  border-radius: 1rem;
+  background: white;
+  padding: 1rem;
+  border: solid 2px #BBD2DE;
+}
+.top::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+header {
+  height: 800px;
+}
+section {
+  min-height: 400px;
+  padding: 4em 0;
+}
+section h1 {
+  text-transform: uppercase;
+  text-align: center;
+}
+.normal {
+  background-color: #fcfae3;
+  color: #282828;
+}
+.dark {
+  background-color: #6e5745;
+  color: white;
+  padding: 12em 0;
+}
+.title {
+  margin-top: 3em !important;
+  max-width: 80%;
+  margin: auto;
+}
+.square {
+  width: 14.28571429%;
+  padding-bottom: 14.28571429%;
+  height: 0;
+  overflow: hidden;
+  display: inline-block;
+  float: left;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.square .mask {
+  opacity: 0;
+  transition: opacity 0.5s;
+  background: rgba(67, 43, 35, 0.8);
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  font-size: 1.2em;
+  margin: auto;
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.square .mask .center {
+  vertical-align: middle;
+  display: table-cell;
+}
+.square:hover .mask {
+  opacity: 1;
+}
+.whole_grid {
+  border: solid 1px #432b23;
+}
+.whole_grid h5 {
+  text-align: center;
+  font-size: 1.2em;
+}
+.whole_grid h5 a,
+.whole_grid h5 a:visited,
+.whole_grid h5 a:active {
+  color: #432b23;
+}
+.whole_grid h5 a:hover,
+.whole_grid h5 a:focus {
+  color: #865646;
+  text-decoration: none;
+}
+.course {
+  border: solid 1px #432b23;
+  height: 70px;
+  overflow: hidden;
+  display: inline-block;
+  width: 14.28571429%;
+  float: left;
+}
+.course h5 {
+  text-align: center;
+}
+.courses::after {
+  content: " ";
+  display: block;
+  clear: both;
+}

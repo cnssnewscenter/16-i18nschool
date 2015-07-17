@@ -9,13 +9,19 @@ class News(models.Model):
 
 
 class Teacher(models.Model):
-    pic = models.CharField(max_length=256)
+    pic = models.ImageField(upload_to="teacher", blank=True)
     name = models.CharField(max_length=256)
-    intro = RichTextField()
-
-
-class Courses(models.Model):
-    name = models.CharField(max_length=256)
+    course = models.CharField(max_length=256)
     school = models.CharField(max_length=256)
     school_own = models.CharField(max_length=256)
     intro = RichTextField()
+    teacher_intro = RichTextField()
+    def image_(self):
+        return '<a href="/media/{0}"><img src="/media/{0}"></a>'.format(self.pic)
+    image_.allow_tags = True
+
+    def __str__(self):
+        return self.course + '|' + self.name
+
+
+

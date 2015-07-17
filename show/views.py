@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from .models import Teacher, Courses
+from .models import Teacher, News
 
 
-def index(self):
+def index(request):
     teachers = Teacher.objects.all()
-    posts = Courses.objects.reverse()[:5]
-    return render("index.html", posts=posts, teachers=teachers)
+    news = News.objects.all()
+    return render(request, "index.html", dict(teachers=teachers))
 
 
 def news(self):
