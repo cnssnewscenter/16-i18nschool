@@ -6,6 +6,11 @@
     <title>暑期学堂</title>
     <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css'%}"/>
     <link rel="stylesheet" href="{% static "app.css" %}"/>
+    <style>
+        a.btn{
+            color: #6e5745;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -23,7 +28,36 @@
             <img src="{% static 'img/title.png' %}" class="title">
         </div>
     </header>
-    <section>PUT A SLIDE HERE</section>
+    <section>
+        <div class="container">
+            <div class="col-sm-5">
+                <h1>NEWS</h1>
+                <h1>新闻</h1>
+                <div class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        {% for i in news%}
+                        <div class="item active more">
+                            <h3>{{i.title}}</h3>
+                            <p style="text-spacing:wrap">{{i.get_intro}}...</p>
+                            <a class="btn pull-right" href="news/{{i.id}}">MORE</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <div class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        {% for i in news%}
+                        <div class="item active">
+                            <img src="{{i.get_pic}}" alt=""/>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="dark">
         <h1>What is internatinal summer school?</h1>
         <h1>什么是暑期国际学堂？</h1>
@@ -126,6 +160,12 @@
             $('.modal').find('.modal-title').text('教师介绍:' + $(this).find('.course-title').text())
             $('.modal').modal('show');
         })
+        $('.carousel').carousel({
+            interval: false
+        })
+        setInterval(function(){
+            $('.carousel').carousel('next');
+        }, 5000)
     })
 
 </script>

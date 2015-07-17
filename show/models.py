@@ -1,11 +1,22 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-
+from pyquery import PyQuery as pyquery
 
 class News(models.Model):
     title = models.CharField(max_length=200)
     created = models.DateTimeField()
     content = RichTextField()
+
+    def get_pic(self):
+        items = pyquery(self.content).find('img')
+        if items:
+            return items[0].attrib['src']
+        else:
+            return None
+
+    def get_intro(self):
+        post = pyquery(self.content).text()
+        return post[:250]
 
 
 class Teacher(models.Model):
