@@ -13,20 +13,20 @@ header {
   text-align: center;
   margin: 0;
   padding: 0 2rem;
-  color: black;
+  color: #432b23;
   text-decoration: none;
 }
 .top .pull-right a:hover {
-  color: black;
+  color: #432b23;
   font-weight: 500;
   text-decoration: none;
 }
 .top .pull-right a:visited {
-  color: black;
+  color: #432b23;
   text-decoration: none;
 }
 .top .pull-right a:nth-child(-n+2) {
-  border-right: solid 1px black;
+  border-right: solid 1px #432b23;
 }
 .top .pull-right input.search {
   margin-left: 2rem;
@@ -34,7 +34,7 @@ header {
   border-radius: 1rem;
   background: white;
   padding: 1rem;
-  border: solid 2px #BBD2DE;
+  border: solid 2px rgba(67, 43, 35, 0.7);
 }
 .top::after {
   content: " ";
