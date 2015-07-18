@@ -13,20 +13,26 @@ def index(request):
 def news(request):
     newses = News.objects.all()
     pages = Paginator(newses, 25)
-    page = request.GET.get('page')
+    page = request.GET.get('page', '1')
+    lastest = newses[:10]
     try:
         contents = pages.page(page)
     except PageNotAnInteger:
+        raise
         contents = pages.page(1)
     except EmptyPage:
+        raise
         contents = pages.page(pages.num_pages)
-    return render(request, "news.html", dict(content=contents))
+    finally:
+        return render(request, "news.html", dict(content=contents.object_list, lastest=lastest, page=page))
 
 
 def single_passage(request, pid):
     contents = News.objects.all().reverse()[:10]
     try:
         post = News.objects.get(pk=pid)
+        post.hit += 1
+        post.save()
         return render(request, "single.html", dict(post=post, posts=contents))
     except:
         raise Http404

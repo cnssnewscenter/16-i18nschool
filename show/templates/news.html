@@ -12,26 +12,26 @@
       margin-top: 5px;
       border: solid 1px #EAD4C3;
     }
-    hr.grey{
-        border: solid 1px grey;
-    }
-    .grey {
-      color: grey;
-    }
-    .post{
+    .posts{
       padding-top: 1em;
       padding-bottom: 4em;
       word-break: break-all;
-    }
-    .post img{
-      max-width: 100%;
-      margin: 1em auto;
-      height: auto !important;
     }
     .divider{
       width: 0;
       max-height: 60%;
       border: solid 2px #EAD4C3;
+    }
+    .grey{
+      color: grey;
+    }
+    .posts a {
+      color: black;
+      padding: 0.25em 0;
+      border-bottom: solid 1px grey;
+    }
+    .posts a:last-child{
+      border-bottom: none;
     }
     </style>
 </head>
@@ -51,23 +51,30 @@
             <img src="{% static 'img/title.png' %}" class="title">
         </div>
     </header>
-    <div class="container post">
+    <div class="container posts">
       <div class="col-sm-8">
-        <h5> <a href="http://www.new1.uestc.edu.cn/">新闻中心</a> - <a href="http://www.new1.uestc.edu.cn/specialtopic/16/">国际学堂</a> - {{post.title}}</h5>
+        <h5>新闻中心 - 国际学堂</h5>
         <hr>
-        <h3 class="text-center post-title">{{post.title}}</h3>
-        <div class="grey">
-          作者：{{post.author}} / 来源：{{post.source}} / 时间：{{post.created|date:'Y/m/d G:i'}} / 点击量：{{post.hit}}
+        <div>
+            {%for i in content%}
+                <a href="http://www.new1.uestc.edu.cn/specialtopic/16/news/{{i.pk}}">{{i.title}} <span class="grey pull-right">作者：{{i.author}} / 来源：{{i.source}} / 时间：{{i.created|date:'Y/m/d G:i'}} / 点击量：{{i.hit}}</span></a>
+            {%endfor%}
         </div>
-        <hr class="grey">
-        {{post.content | safe}}
+        <div class="text-center">
+          {% if page.has_previous %}
+          <a href="http://www.new1.uestc.edu.cn/specialtopic/16/news/{{page.previous_page_number}}" class="btn btn-default">上一页</a>
+          {% endif %}
+          {% if page.has_next %}
+          <a href="http://www.new1.uestc.edu.cn/specialtopic/16/news/{{page.next_page_number}}" class="btn btn-default">下一页</a>
+          {% endif %}
+        </div>
       </div>
       <div class="col-sm-4">
         <h5>最新新闻</h5>
         <hr>
-        {% for i in posts %}
-          <p><a href="http://www.new1.uestc.edu.cn/specialtopic/16/news/{{i.pk}}">{{i.title}}</a></p>
-        {% endfor %}
+        {%for i in lastest%}
+            <a href="http://www.new1.uestc.edu.cn/specialtopic/16/news/{{i.pk}}">{{i.title}} <span class="orange pull-right">{{i.created|date:"m-d"}}</span></a>
+        {%endfor%}
       </div>
     </div>
 <footer>
