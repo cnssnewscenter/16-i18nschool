@@ -1,0 +1,87 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>暑期学堂</title>
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css'%}"/>
+    <link rel="stylesheet" href="{% static "app.css" %}"/>
+    <style>
+    hr{
+      width: 100%;
+      border: solid 1px #EAD4C3;
+    }
+    .post{
+      padding-top: 1em;
+      padding-bottom: 4em;
+      word-break: break-all;
+    }
+    .post img{
+      max-width: 100%;
+      margin: 1em auto;
+      height: auto !important;
+    }
+    .divider{
+      width: 0;
+      max-height: 60%;
+      border: solid 2px #EAD4C3;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top container">
+            <img src="" alt="" class="logo"/>
+            <img src="{% static 'img/logo.png'%}" class="pull-left"/>
+            <div class="pull-right">
+                <a href="http://www.uestc.edu.cn/">学校主页</a>
+                <a href="http://www.new1.uestc.edu.cn/">新闻中心</a>
+                <a href="http://www.new1.uestc.edu.cn/?n=UestcNews.Front.Category.Page&CatId=56">关注</a>
+                <input type="text" placeholder="搜索" class="search"/>
+            </div>
+        </div>
+        <div class="container text-center">
+            <img src="{% static 'img/title.png' %}" class="title">
+        </div>
+    </header>
+    <div class="container post">
+      <div class="col-sm-8">
+        <h5> <a href="http://www.new1.uestc.edu.cn/">新闻中心</a> - <a href="http://www.new1.uestc.edu.cn/specialtopic/16/">国际学堂</a> - {{post.title}}</h5>
+        <hr>
+        <h1 class="text-center">{{post.title}}</h1>
+        {{post.content | safe}}
+      </div>
+      <div class="col-sm-4">
+        <h5>最新新闻</h5>
+        <hr>
+        {% for i in posts %}
+          <p><a href="http://www.new1.uestc.edu.cn/specialtopic/16/news/{{i.pk}}">{{i.title}}</a></p>
+        {% endfor %}
+      </div>
+    </div>
+<footer>
+    <div class="container">
+        <p class="address"><a href="#" target="_blank">关于我们</a><a href="http://nav.uestc.edu.cn/" target="_blank">成电导航</a><a href="http://www.epptime.com/" target="_blank">卓拙科技</a><a href="https://cnssuestc.org/" target="_blank">凝聚网络安全工作室</a><a href="http://www.jg.uestc.edu.cn/" target="_blank">机关党委网</a><a href="http://www.univs.cn/" target="_blank">中国大学生在线</a></p>
+        <p class="copy1">© 2012 电子科技大学新闻中心</p>
+        <p class="grey">TEL:028-61831278 / 028-61830213(清水河校区)&nbsp;&nbsp;&nbsp;&nbsp;028-83202219(沙河校区)</p>
+        <p class="grey"><a href="mailto:xwzx@uestc.edu.cn">xwzx@uestc.edu.cn</a></p>
+        <div class="grey contact">
+            <a href="#" target="_blank">
+                <img src="{% static "img/footer-weixin.gif"%}">
+                <i class="qrcode"><img src="{% static "img/erweima.jpg" %}"></i>
+            </a>
+            <a href="http://weibo.com/u/3982954755" target="_blank">
+                <img src="{%static  "img/footer-weibo.gif"%}">
+            </a>
+            <a href="#" target="_blank">
+                <img src="{%static  "img/footer-book.gif"%}">
+                <i class="qrcode book"><img src="{%static  "img/bookQR.jpg"%}"></i>
+            </a>
+            <a href="#" target="_blank">
+                <img src="{%static  "img/footer-rss.gif"%}">
+            </a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
