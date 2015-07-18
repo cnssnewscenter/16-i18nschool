@@ -42,7 +42,6 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'show.ReversedProxyMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -101,7 +100,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-if DEBUG:
+if not DEBUG:
     STATIC_URL = 'http://www.new1.uestc.edu.cn/specialtopic/16/static/'
 else:
     STATIC_URL = "/static/"
