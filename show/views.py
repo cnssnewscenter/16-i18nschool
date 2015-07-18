@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Teacher, News
 
+
 def index(request):
     teachers = Teacher.objects.all()
     news = [i for i in News.objects.all() if i.get_pic()][:5]
