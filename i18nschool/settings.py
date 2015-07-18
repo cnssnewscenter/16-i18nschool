@@ -25,7 +25,7 @@ SECRET_KEY = '47^88on+jxvfj((woxbz=rxa0&dace45fb&eskjqj_g1&1m_hj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["www.new1.uestc.edu.cn"]
 
 
 # Application definition
@@ -100,8 +100,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
-STATIC_URL = '/static/'
+if DEBUG:
+    STATIC_URL = 'http://www.new1.uestc.edu.cn/specialtopic/16/static/'
+else:
+    STATIC_URL = "/static/"
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
